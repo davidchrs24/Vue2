@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-green-500">
+    <div class="mb-12">
+        <p class="bg-green-700 text-center text-white font-bold py-3"><a href="total.html">Menghitung</a></p>
+        <ul class="grid md:grid-cols-2 gap-4 bg-blue-500 text-white py-3 px-96">
+          <li class="text-white font-bold"><a href="total.html">Menghitung Total Gaji</a></li>
+          <li class="text-white font-bold"><a href="nilaiakhir.html">Menghitung Nilai Akhir</a></li>
+        </ul>  
+    </div>
+    <div id="app">
+        <table class="bg-pink-400 p-16 max-w-lg mx-auto rounded-xl shadow-md flex items-center space-x-4">
+            <tr>
+                <td class="text-white font-bold">Nilai Kehadiran</td>
+                <td>:</td>
+                <td><input type="text"v-model="kehadiran" class="border rounded py-2 px3 shadow focus:ring focus:outline-none mb-3"></td>
+            </tr>
+            <tr>
+                <td class="text-white font-bold">Nilai Tugas</td>
+                <td>:</td>
+                <td><input type="text"v-model="tugas" class="border rounded py-2 px3 shadow focus:ring focus:outline-none mb-3"></td>
+            </tr>
+            <tr>
+                <td class="text-white font-bold">Nilai MID</td>
+                <td>:</td>
+                <td><input type="text"v-model="MID" class="border rounded py-2 px3 shadow focus:ring focus:outline-none mb-3"></td>
+            </tr>
+            <tr>
+                <td class="text-white font-bold">Nilai UAS</td>
+                <td>:</td>
+                <td><input type="text"v-model="UAS" class="border rounded py-2 px3 shadow focus:ring focus:outline-none mb-3"></td>
+            </tr>
+            <tr>
+                <td class="text-gray-900 font-bold">Nilai Huruf</td>
+                <td>:</td>
+                <td>{{huruf}}</td>
+            </tr>
+            <tr>
+                <td class="text-gray-900 font-bold">Nilai Total</td>
+                <td>:</td>
+                <td>{{total}}</td>
+            </tr>
+            <tr>
+                <td colspan="3"><button class="bg-green-500 rounded text-white font-bold py-2 px-4" v-on:click="hitungnilai">Hitung</button></td>
+            </tr>
+        </table>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+            el: '#app',
+            data: {
+                kehadiran: "",
+                tugas:"",
+                MID:"",
+                UAS: "",
+                huruf: "",
+                total:""
+            },
+            methods: {
+                hitungnilai(){
+                    this.total = (0.1 * this.kehadiran) + (0.2 * this.tugas) + (0.3 * this.MID) + (0.4 * this.UAS)            
+                    }
+                }
+            })
+        </script>    
+</body>
+</html>
